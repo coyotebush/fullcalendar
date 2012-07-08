@@ -459,6 +459,10 @@ function Calendar(element, options, eventSources) {
 			options[name] = value;
 			updateSize();
 		}
+		if (name == 'filterEvents') {
+			options[name] = value;
+			rerenderEvents();
+		}
 	}
 	
 	
