@@ -1,0 +1,23 @@
+
+filterEvents
+==================
+
+Filters events displayed on the calendar.
+
+<div class='spec' markdown='1'>
+function( *event* )
+</div>
+
+The filter function accepts one [Event Object]()
+argument and returns `true` if it should be displayed on the calendar.
+
+Setter
+------
+
+You can dynamically set or clear the filter after initialization:
+
+<div class='spec' markdown='1'>
+$('#calendar').fullCalendar('option', 'filterEvents', function (e) { *...* });
+$('#calendar').fullCalendar('option', 'filterEvents', false);
+</div>
+
