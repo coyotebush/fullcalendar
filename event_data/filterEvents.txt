@@ -8,8 +8,9 @@ Filters events displayed on the calendar.
 function( *event* )
 </div>
 
-The filter function accepts one [Event Object]()
-argument and returns `true` if it should be displayed on the calendar.
+The filter function accepts one [Event Object]() argument and returns
+`true` if it should be hidden from the calendar or `false` if it should
+be displayed.
 
 Setter
 ------
