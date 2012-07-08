@@ -245,10 +245,8 @@ function Calendar(element, options, eventSources) {
 			calcSize();
 			setSize();
 			unselect();
-			currentView.clearEvents();
-			currentView.renderEvents(events);
-			currentView.sizeDirty = false;
 		}
+		_rerenderEvents();
 	}
 	
 	
@@ -343,13 +341,19 @@ function Calendar(element, options, eventSources) {
 	// attempts to rerenderEvents
 	function rerenderEvents(modifiedEventID) {
 		markEventsDirty();
+		_rerenderEvents(modifiedEventID);
+	}
+
+	function _rerenderEvents(modifiedEventID) {
+		var filt = options.filterEvents;
+		var _events = $.isFunction(filt) ? $.grep(events, filt) : events;
+
 		if (elementVisible()) {
 			currentView.clearEvents();
-			currentView.renderEvents(events, modifiedEventID);
+			currentView.renderEvents(_events, modifiedEventID);
 			currentView.eventsDirty = false;
 		}
 	}
-	
 	
 	function markEventsDirty() {
 		$.each(viewInstances, function(i, inst) {
