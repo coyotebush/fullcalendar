@@ -346,7 +346,7 @@ function Calendar(element, options, eventSources) {
 
 	function _rerenderEvents(modifiedEventID) {
 		var filt = options.filterEvents;
-		var _events = $.isFunction(filt) ? $.grep(events, filt) : events;
+		var _events = $.isFunction(filt) ? $.grep(events, filt, true) : events;
 
 		if (elementVisible()) {
 			currentView.clearEvents();

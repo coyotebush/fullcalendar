@@ -18,7 +18,7 @@
 				right: 'month,agendaWeek,basicWeek,agendaDay,basicDay'
 			},
 			filterEvents: function (e) {
-				return e.allDay;
+				return !e.allDay;
 			},
 			events: [
 				{
@@ -88,8 +88,8 @@
 </style>
 </head>
 <body>
-<button onclick="$('#calendar').fullCalendar('option', 'filterEvents', function (e) { return e.allDay; })">only allDay</button>
-<button onclick="$('#calendar').fullCalendar('option', 'filterEvents', true)">show all</button>
+<button onclick="$('#calendar').fullCalendar('option', 'filterEvents', function (e) { return !e.allDay; })">only allDay</button>
+<button onclick="$('#calendar').fullCalendar('option', 'filterEvents', false)">show all</button>
 <div id='calendar'></div>
 </body>
 </html>
