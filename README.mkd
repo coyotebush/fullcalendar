@@ -2,11 +2,13 @@
 FullCalendar - Full-sized drag & drop event calendar
 ====================================================
 
-About this fork (roundcube)
-===========================
+About this fork (coyotebush)
+----------------------------
 
-This fork adds features either requested in the issue tracker or needed for
-the Roundcube calendar plugin.
+This fork adds features needed for the [MasterCalendar](https://github.com/coyotebush/master-calendar)
+project. I try to develop enhances/bugfixes in their own branches based on upstream repositories
+for ease of merging and pull requests. The `master` branch is mostly a collection of these features
+and is not likely to be as useful to anyone else.
 
 Development and testing
 -----------------------
