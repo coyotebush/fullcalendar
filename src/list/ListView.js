@@ -235,7 +235,7 @@ function ListEventRenderer() {
 			if ((i = e._fci) !== undefined) {
 				e._fci = undefined;
 				event = seg.events[i];
-				bindHandlers(event, container.children().eq(i), seg);
+				bindHandlers(event, $(e), seg);
 				$(ev.target).trigger(ev);
 			}
 			ev.stopPropagation();
