@@ -136,9 +136,13 @@ function ListEventRenderer() {
 				if (event.source && event.source.className) {
 					classes = classes.concat(event.source.className);
 				}
-				
+				if (event.url) {
+					s += "<a href='" + htmlEscape(event.url) + "'";
+				} else {
+					s += "<div";
+				}
 				s += 
-					"<div class='" + classes.join(' ') + "'" + skinCssAttr + ">" +
+					" class='" + classes.join(' ') + "'" + skinCssAttr + ">" +
 					"<div class='fc-event-inner fc-event-skin'" + skinCssAttr + ">" +
 					"<div class='fc-event-head fc-event-skin'" + skinCssAttr + ">" +
 					"<div class='fc-event-time'>" +
@@ -153,7 +157,7 @@ function ListEventRenderer() {
 					"</div>" +
 					"<div class='fc-event-bg'></div>" +
 					"</div>" + // close inner
-					"</div>";  // close outer
+					"</" + (event.url ? "a" : "div") + ">";  // close outer
 			}
 			
 			segContainer[0].innerHTML = s;
@@ -231,7 +235,7 @@ function ListEventRenderer() {
 			if ((i = e._fci) !== undefined) {
 				e._fci = undefined;
 				event = seg.events[i];
-				bindHandlers(event, container.children().eq(i), seg);
+				bindHandlers(event, $(e), seg);
 				$(ev.target).trigger(ev);
 			}
 			ev.stopPropagation();
