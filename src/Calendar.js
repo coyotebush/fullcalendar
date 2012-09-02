@@ -58,8 +58,11 @@ function Calendar(element, options, eventSources) {
 	/* Main Rendering
 	-----------------------------------------------------------------------------*/
 	
-	
-	setYMD(date, options.year, options.month, options.date);
+	if (options.date instanceof Date) {
+		date = cloneDate(options.date);
+	}else{
+		setYMD(date, options.year, options.month, options.date);
+	}
 	
 	
 	function render(inc) {
